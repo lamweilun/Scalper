@@ -5,8 +5,9 @@
 - Mostly will be about rewriting C++ STL containers into ANSI C.
 - This is still C, so it is still not safe, definitely not for beginners.
 - Conversion is not going to be perfect, but I will strive to achieve it as close as possible.
+- Will be adding comments ASAP.
 
-### Usage
+### Basic Usage
 #### CVector
 ```C
 #include "cvector.h"
@@ -27,3 +28,7 @@ int main()
   return 0;
 }
 ```
+
+### Donation 
+- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme2/LamWeiLun/1)
+- Send me a cup of coffee, deeply appreciate it. Shall turn caffeine into more code!

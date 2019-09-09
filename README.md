@@ -24,7 +24,7 @@ int main()
   
   /* Pushes 5 into the vector, then removing it */
   CVECTOR_PUSHBACK(int_vector, 5);
-  CVECTOR_POPBACK();
+  CVECTOR_POPBACK(int_vector);
   
   /* Deallocates the vector, call CVECTOR_INIT to use this vector again */
   CVECTOR_CLEAR(int_vector);

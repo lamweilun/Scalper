@@ -14,7 +14,7 @@
 ### Basic Usage
 #### CVector
 ```C
-#include "cvector.h"
+#include "scalper.h"
 
 int main()
 {

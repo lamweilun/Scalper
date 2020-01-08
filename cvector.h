@@ -11,9 +11,9 @@ struct \
   unsigned int max_size;\
 }
 
-#define CVECTOR_AT(VEC, INDEX) VEC.data[INDEX];
+#define CVECTOR_AT(VEC, INDEX) VEC.data[INDEX]
 
-#define CVECTOR_BACK(VEC) VEC.data[VEC.size - 1];
+#define CVECTOR_BACK(VEC) VEC.data[VEC.size - 1]
 
 #define CVECTOR_CLEAR(VEC) \
 { \
@@ -35,9 +35,9 @@ struct \
   VEC.max_size = CAP; \
 }
 
-#define CVECTOR_MAXSIZE(VEC) VEC.max_size;
+#define CVECTOR_MAXSIZE(VEC) VEC.max_size
 
-#define CVECTOR_POPBACK(VEC) --VEC.size;
+#define CVECTOR_POPBACK(VEC) --VEC.size
 
 #define CVECTOR_PUSHBACK(VEC, ELEMENT) \
 { \

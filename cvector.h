@@ -52,7 +52,7 @@ struct \
   ++VEC._size; \
 }
 
-#define CVECTOR__size(VEC) VEC._size
+#define CVECTOR_SIZE(VEC) VEC._size
 
 #define CVECTOR_SWAP(VEC1, VEC2) \
 { \

@@ -35,7 +35,7 @@ struct \
   VEC.max_size = CAP; \
 }
 
-#define CVECTOR_MAXSIZE(VEC) VEC.max_size
+#define CVECTOR_CAPACITY(VEC) VEC.max_size
 
 #define CVECTOR_POPBACK(VEC) --VEC.size
 

@@ -30,7 +30,9 @@ struct \
 
 #define CVECTOR_INIT(VEC, CAP) \
 { \
-  VEC._data = malloc(CAP * sizeof(*(VEC)._data)); \
+  void* tmp = malloc(CAP * sizeof(*(VEC)._data)); \
+  if (tmp != NULL) \
+    VEC._data = tmp; \
   VEC._size = 0; \
   VEC._capacity = CAP; \
 }
@@ -43,10 +45,13 @@ struct \
 
 #define CVECTOR_PUSHBACK(VEC, ELEMENT) \
 { \
+  void* tmp = NULL; \
   if (VEC._size + 1 == VEC._capacity) \
   { \
     VEC._capacity *= 2; \
-    VEC._data = realloc(VEC._data, VEC._capacity * sizeof(*(VEC)._data)); \
+    tmp = realloc(VEC._data, VEC._capacity * sizeof(*(VEC)._data)); \
+    if (tmp != NULL) \
+      VEC._data = tmp; \
   } \
   VEC._data[VEC._size] = ELEMENT; \
   ++VEC._size; \

@@ -37,6 +37,8 @@ struct \
 
 #define CVECTOR_CAPACITY(VEC) VEC.max_size
 
+#define CVECTOR_EMPTY(VEC) VEC.size == 0
+
 #define CVECTOR_POPBACK(VEC) --VEC.size
 
 #define CVECTOR_PUSHBACK(VEC, ELEMENT) \

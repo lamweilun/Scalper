@@ -26,7 +26,7 @@ struct \
 
 #define CVECTOR_EMPTY(VEC) VEC._size == 0
 
-#define CVECTOR_FRONT(VEC) VEC._data[0];
+#define CVECTOR_FRONT(VEC) VEC._data[0]
 
 #define CVECTOR_INIT(VEC, CAP) \
 { \

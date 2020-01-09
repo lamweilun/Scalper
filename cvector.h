@@ -1,3 +1,8 @@
+/*
+ * Ensure that helper functions are in alphabetical order. 
+ * Ensure that line limit is 80 chars.
+ */
+
 #ifndef CVECTOR_H
 #define CVECTOR_H
 
@@ -57,6 +62,33 @@ struct \
   ++VEC._size; \
 }
 
+
+/*
+  Reserve additional space for the container in advance to keep the complexity
+  of push back operation O(1).
+*/
+#define CVECTOR_RESERVE(VEC, CAP) \
+{ \
+  void* tmp = realloc(VEC._data, CAP * sizeof(*(VEC)._data)); \
+  if (tmp != NULL) { \
+    VEC._data = tmp; \
+    VEC._capacity = CAP; \
+  } \
+}
+
+/*
+  Shrinks the capacity of the container to its size to free the extra space held
+  by the container.
+*/
+#define CVECTOR_SHRINK_TO_FIT(VEC) \
+{ \
+  void* tmp = realloc(VEC._data, VEC._size * sizeof(*(VEC)._data)); \
+  if (tmp != NULL) { \
+    VEC._data = tmp; \
+    VEC._capacity = VEC._size; \
+  } \
+}
+
 #define CVECTOR_SIZE(VEC) VEC._size
 
 #define CVECTOR_SWAP(VEC1, VEC2) \
@@ -72,28 +104,5 @@ struct \
   VEC2._capacity = tmpMax_size; \
 }
 
-/*
-  Shrinks the capacity of the container to its size to free the extra space held by the container.
-*/
-#define CVECTOR_SHRINK_TO_FIT(VEC) \
-{ \
-  void* tmp = realloc(VEC._data, VEC._size * sizeof(*(VEC)._data)); \
-  if (tmp != NULL) { \
-    VEC._data = tmp; \
-    VEC._capacity = VEC._size; \
-  } \
-}
-
-/*
-  Reserve additional space for the container in advance to keep the complexity of push back operation O(1).
-*/
-#define CVECTOR_RESERVE(VEC, CAP) \
-{ \
-  void* tmp = realloc(VEC._data, CAP * sizeof(*(VEC)._data)); \
-  if (tmp != NULL) { \
-    VEC._data = tmp; \
-    VEC._capacity = CAP; \
-  } \
-}
 
 #endif

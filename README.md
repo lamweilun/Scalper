@@ -55,5 +55,7 @@ int main()
   /* Deletes the strings */
   CSTRING_DELETE(&cs1);
   CSTRING_DELETE(&cs2);
+
+  return 0;
 }
 ```

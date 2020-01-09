@@ -1,6 +1,8 @@
 #ifndef CSTRING_H
 #define CSTRING_H
-#define SMALL_STR_SIZE 15 // a string of length < 15, is considered as a small string in this case
+
+ /* a string of length < 15, is considered as a small string in this case */
+#define SMALL_STR_SIZE 15
 #define EMPTY_STR ""
 
 #include <stdlib.h>
@@ -28,7 +30,7 @@ const char* CSTRING_DATA(const CSTRING* const CS)
 
 void CSTRING_DELETE(CSTRING* const CS)
 {
-  // in case _small_string is under use, no need to call free
+  /* in case _small_string is under use, no need to call free */
   if (CS->_data)
   {
     free(CS->_data);
@@ -40,7 +42,7 @@ void CSTRING_DELETE(CSTRING* const CS)
 void CSTRING_INIT(CSTRING* const CS, const char* TEXT)
 {
   CS->_length = strlen(TEXT);
-  // stores the string in _small_data array
+  /* stores the string in _small_data array */
   if (CS->_length < SMALL_STR_SIZE)
   {
     strcpy(CS->_small_data, TEXT);
@@ -65,8 +67,10 @@ unsigned int CSTRING_SIZE(const CSTRING* const CS)
 
 void CSTRING_SWAP(CSTRING* const CS1, CSTRING* const CS2)
 {
-  // using the updated syntax for struct
-  CSTRING tmp = { ._length = CS1->_length, ._data = CS1->_data };
+  /* using the updated syntax for struct */
+  CSTRING tmp;
+  tmp._data = CS1->_data;
+  tmp._length = CS1->_length;
   strcpy(tmp._small_data, CS1->_small_data);
 
   CS1->_length = CS2->_length;

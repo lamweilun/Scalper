@@ -27,7 +27,7 @@ int main()
   CVECTOR_POPBACK(int_vector);
   
   /* Deallocates the vector, call CVECTOR_INIT to use this vector again */
-  CVECTOR_CLEAR(int_vector);
+  CVECTOR_DELETE(int_vector);
   
   return 0;
 }

@@ -24,10 +24,16 @@ struct \
 { \
   VEC._size = 0; \
   VEC._capacity = 0; \
-  free(VEC._data); \
 }
 
 #define CVECTOR_DATA(VEC) VEC._data
+
+#define CVECTOR_DELETE(VEC) \
+{ \
+  CVECTOR_CLEAR(VEC); \
+  free(VEC._data); \
+  VEC._data = NULL; \
+} \
 
 #define CVECTOR_EMPTY(VEC) VEC._size == 0
 

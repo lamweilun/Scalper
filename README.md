@@ -3,6 +3,10 @@
 ### What is it about?
 - A personal project that I wrote to make the lives of C programmers easier.
 - Mostly will be about rewriting C++ STL containers into ANSI C.
+- Code is compiled and tested as such:
+```
+gcc -Wall -Werror -Wextra -pedantic -ansi main.c -o main.exe
+```
 - This is still C, so it is still not safe, definitely not for beginners.
 - Conversion is not going to be perfect, but I will strive to achieve it as close as possible.
 - Will be adding comments ASAP.
@@ -55,5 +59,7 @@ int main()
   /* Deletes the strings */
   CSTRING_DELETE(&cs1);
   CSTRING_DELETE(&cs2);
+
+  return 0;
 }
 ```

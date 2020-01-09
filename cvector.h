@@ -1,8 +1,3 @@
-/*
- * Ensure that helper functions are in alphabetical order. 
- * Ensure that line limit is 80 chars.
- */
-
 #ifndef CVECTOR_H
 #define CVECTOR_H
 
@@ -33,7 +28,7 @@ struct \
   CVECTOR_CLEAR(VEC); \
   free(VEC._data); \
   VEC._data = NULL; \
-} \
+}
 
 #define CVECTOR_EMPTY(VEC) VEC._size == 0
 

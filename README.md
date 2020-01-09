@@ -32,3 +32,28 @@ int main()
   return 0;
 }
 ```
+
+#### CString
+```C
+#include <stdio.h>
+#include "scalper.h"
+
+int main()
+{
+  /* Creates 2 string */
+  CSTRING cs1;
+  CSTRING cs2;
+  CSTRING_INIT(&cs1, "Hello World");
+  CSTRING_INIT(&cs2, "Goodbye Universe");
+
+  /* Swap the 2 strings */
+  CSTRING_SWAP(&cs1, &cs2);
+
+  /* Outputs "Hello World" */
+  printf("%s", CSTRING_DATA(cs2));
+
+  /* Deletes the strings */
+  CSTRING_DELETE(&cs1);
+  CSTRING_DELETE(&cs2);
+}
+```

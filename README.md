@@ -50,7 +50,7 @@ int main()
   CSTRING_SWAP(&cs1, &cs2);
 
   /* Outputs "Hello World" */
-  printf("%s", CSTRING_DATA(cs2));
+  printf("%s", CSTRING_DATA(&cs2));
 
   /* Deletes the strings */
   CSTRING_DELETE(&cs1);

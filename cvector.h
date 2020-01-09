@@ -37,7 +37,7 @@ struct \
   VEC._capacity = CAP; \
 }
 
-#define CVECTOR_CAPACITY(VEC) VEC.max__size
+#define CVECTOR_CAPACITY(VEC) VEC._capacity
 
 #define CVECTOR_EMPTY(VEC) VEC._size == 0
 
@@ -70,6 +70,30 @@ struct \
   VEC2._data = tmp; \
   VEC2._size = tmp_size; \
   VEC2._capacity = tmpMax_size; \
+}
+
+/*
+  Shrinks the capacity of the container to its size to free the extra space held by the container.
+*/
+#define CVECTOR_SHRINK_TO_FIT(VEC) \
+{ \
+  void* tmp = realloc(VEC._data, VEC._size * sizeof(*(VEC)._data)); \
+  if (tmp != NULL) { \
+    VEC._data = tmp; \
+    VEC._capacity = VEC._size; \
+  } \
+}
+
+/*
+  Reserve additional space for the container in advance to keep the complexity of push back operation O(1).
+*/
+#define CVECTOR_RESERVE(VEC, CAP) \
+{ \
+  void* tmp = realloc(VEC._data, CAP * sizeof(*(VEC)._data)); \
+  if (tmp != NULL) { \
+    VEC._data = tmp; \
+    VEC._capacity = CAP; \
+  } \
 }
 
 #endif

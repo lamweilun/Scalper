@@ -22,7 +22,7 @@ struct \
   free(VEC._data); \
 }
 
-#define CVECTOR__data(VEC) VEC._data;
+#define CVECTOR_DATA(VEC) VEC._data
 
 #define CVECTOR_EMPTY(VEC) VEC._size == 0
 

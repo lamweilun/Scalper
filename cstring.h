@@ -10,8 +10,6 @@ typedef struct CSTRING
 {
   unsigned int _length;
   char* _data;
-
-  // to prevent heap allocation, small strings can be stored in an array. Similar to small string optimization in C++.
   char _small_data[SMALL_STR_SIZE];
 } CSTRING;
 
@@ -25,6 +23,7 @@ const char* CSTRING_DATA(const CSTRING* const CS)
   {
     return CS->_small_data;
   }
+  return CS->_data;
 }
 
 void CSTRING_DELETE(CSTRING* const CS)

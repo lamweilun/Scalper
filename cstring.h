@@ -65,6 +65,85 @@ unsigned int CSTRING_SIZE(const CSTRING* const CS)
   return CS->_length;
 }
 
+/*
+  GET and SET methods for last character in the string
+*/
+char CSTRING_GET_BACK(const CSTRING* const CS)
+{
+  if (CS->_data)
+  {
+    return CS->_data[CS->_length - 1];
+  }
+  else
+  {
+    return CS->_small_data[CS->_length - 1];
+  }
+}
+
+void CSTRING_SET_BACK(CSTRING* CS, char C)
+{
+  if (CS->_data)
+  {
+    CS->_data[CS->_length - 1] = C;
+  }
+  else
+  {
+    CS->_small_data[CS->_length - 1] = C;
+  }
+}
+
+/*
+  GET and SET methods for first character in the string
+*/
+char CSTRING_GET_FRONT(const CSTRING* const CS)
+{
+  if (CS->_data)
+  {
+    return CS->_data[0];
+  }
+  else
+  {
+    return CS->_small_data[0];
+  }
+}
+
+void CSTRING_SET_FRONT(CSTRING* CS, char C)
+{
+  if (CS->_data)
+  {
+    CS->_data[0] = C;
+  }
+  else
+  {
+    CS->_small_data[0] = C;
+  }
+}
+
+/* Access elements by index */
+char CSTRING_GET_AT(const CSTRING* const CS, unsigned int INDEX)
+{
+  if (CS->_data)
+  {
+    return CS->_data[INDEX];
+  }
+  else
+  {
+    return CS->_small_data[INDEX];
+  }
+}
+
+void CSTRING_SET_AT(CSTRING* CS, unsigned int INDEX, char C)
+{
+  if (CS->_data)
+  {
+    CS->_data[INDEX] = C;
+  }
+  else
+  {
+    CS->_small_data[INDEX] = C;
+  }
+}
+
 void CSTRING_SWAP(CSTRING* const CS1, CSTRING* const CS2)
 {
   /* using the updated syntax for struct */

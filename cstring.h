@@ -25,7 +25,6 @@ const char* CSTRING_DATA(const CSTRING* const CS)
   {
     return CS->_small_data;
   }
-  return CS->_data;
 }
 
 void CSTRING_DELETE(CSTRING* const CS)
